@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProviders.of(this)
                 .get(MainViewModel::class.java)
 
-        mainViewModel.notas.observe(this, notasObserver)
+        mainViewModel.notas.observe(this, usuariosObserver)
         mainViewModel.isLoading.observe(this, loadingObserver)
 
         mainViewModel.buscarTodos()
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private var notasObserver = Observer<List<Usuario>> {
+    private var usuariosObserver = Observer<List<Usuario>> {
         preencheALista(it!!)
     }
 

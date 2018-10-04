@@ -11,8 +11,8 @@ class ClientApi<T> {
     fun getClient(c: Class<T>): T {
         val retrofit = Retrofit.Builder()
                 .client(getOkhttpClientAuth().build())
-                //.baseUrl("https://https://s3-sa-east-1.amazonaws.com")
-                .baseUrl("https://s3-sa-east-1.amazonaws.com/pontotel-docs/data")
+                .baseUrl("https://s3-sa-east-1.amazonaws.com")
+                //.baseUrl("https://s3-sa-east-1.amazonaws.com/pontotel-docs/data")
                 //.baseUrl("https://s3-sa-east-1.amazonaws.com/pontotel-docs/data.json")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

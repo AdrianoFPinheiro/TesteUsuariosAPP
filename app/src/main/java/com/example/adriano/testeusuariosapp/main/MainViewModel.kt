@@ -18,7 +18,7 @@ class MainViewModel : ViewModel() {
                 .buscarTodos(
                         onComplete = {
                             isLoading.value = false
-                            notas.value = it
+                            notas.value = it?.data
 
                         }, onError = {
                     isLoading.value = false

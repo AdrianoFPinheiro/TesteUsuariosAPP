@@ -2,7 +2,7 @@ package com.example.adriano.testeusuariosapp.repository
 
 
 import com.example.adriano.testeusuariosapp.api.getUsuarioAPI
-import com.example.adriano.testeusuariosappp.model.Usuario
+import com.example.adriano.testeusuariosapp.model.ResponseUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,20 +10,24 @@ import retrofit2.Response
 
 class UsuarioRepository {
 
-    fun buscarTodos(onComplete: (List<Usuario>?) -> Unit,
+    fun buscarTodos(onComplete: (ResponseUser?) -> Unit,
                     onError: (Throwable?) -> Unit
     ) {
         getUsuarioAPI()
                 .buscarTodos()
-                .enqueue(object : Callback<List<Usuario>> {
-                    override fun onFailure(call: Call<List<Usuario>>?, t: Throwable?) {
+                .enqueue(object: Callback<ResponseUser> {
+                    override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
                         onError(t)
                     }
 
-                    override fun onResponse(call: Call<List<Usuario>>?, response: Response<List<Usuario>>?) {
+                    override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>) {
                         onComplete(response?.body())
                     }
+
                 })
+
+
+        
     }
 
 }

@@ -13,18 +13,18 @@ class MainListAdapter(
         val context: Context,
         val usuarios: List<Usuario>,
         val listener: (Usuario) -> Unit,
-        val listenerDelete: (Usuario) -> Unit) : RecyclerView.Adapter<MainListAdapter.NotaViewHolder>() {
+        val listenerDelete: (Usuario) -> Unit) : RecyclerView.Adapter<MainListAdapter.UsuarioViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotaViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioViewHolder {
         val itemView = LayoutInflater.from(context)
                 .inflate(R.layout.nota_item, parent, false)
-        return NotaViewHolder(itemView)
+        return UsuarioViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: NotaViewHolder, position: Int) {
-        val nota = usuarios[position]
+    override fun onBindViewHolder(holder: UsuarioViewHolder, position: Int) {
+        val usuario = usuarios[position]
         holder?.let {
-            holder.bindView(nota, listener, listenerDelete)
+            holder.bindView(usuario, listener, listenerDelete)
         }
     }
 
@@ -32,7 +32,7 @@ class MainListAdapter(
         return usuarios.size
     }
 
-    class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class UsuarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindView(usuario: Usuario,
                      listener: (Usuario) -> Unit,
