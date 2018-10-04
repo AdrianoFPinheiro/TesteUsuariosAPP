@@ -39,10 +39,6 @@ class MainListAdapter(
                      listenerDelete: (Usuario) -> Unit) = with(itemView) {
             tvUsuario.text = usuario.name
             tvSenha.text = usuario.pwd
-
-            /*ivDelete.setOnClickListener {
-                listenerDelete(jogo)
-            }*/
             setOnClickListener { listener(usuario) }
         }
     }
