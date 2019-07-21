@@ -22,7 +22,6 @@ class MainViewModel : ViewModel() {
 
                         }, onError = {
                     isLoading.value = false
-                    notas.value = arrayListOf()
                 })
 
     }
